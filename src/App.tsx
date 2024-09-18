@@ -1,5 +1,4 @@
-import './App.css'
-import GlobalStyle from './styles'
+import GlobalStyle from './styles';
 
 function App() {
   return (
@@ -7,7 +6,7 @@ function App() {
       <GlobalStyle />
       <h1>Ola</h1>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

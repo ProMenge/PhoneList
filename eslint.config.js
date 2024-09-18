@@ -1,37 +1,25 @@
-import js from '@eslint/js'
-import tseslint from '@typescript-eslint/eslint-plugin'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import globals from 'globals'
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
+import pluginReact from 'eslint-plugin-react';
+import prettier from 'eslint-plugin-prettier';
+import configPrettier from 'eslint-config-prettier';
 
-export default tseslint.config(
-  { ignores: ['dist'] },
+export default [
   {
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.recommended,
-      'plugin:react/recommended',
-      'plugin:@typescript-eslint/recommended',
-      'prettier' // Adiciona as regras do Prettier para evitar conflitos
-    ],
-    files: ['**/*.{ts,tsx}'],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
-    plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-      '@typescript-eslint': tseslint
-    },
+    files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
+    languageOptions: { globals: globals.browser },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
-      'prettier/prettier': 'error', // Adiciona Prettier para exibir erros de formatação
+      // Prettier como regra de erro
+      'prettier/prettier': 'error',
     },
   },
-)
+  ...tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
+  {
+    // Configuração do Prettier para desativar regras conflitantes
+    plugins: { prettier },
+    rules: configPrettier.rules,
+    'react/react-in-jsx-scope': 'off',
+  },
+  eslintPluginPrettierRecommended,
+];
