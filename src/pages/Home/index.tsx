@@ -1,9 +1,10 @@
 import ContactList from '../../containers/ContactList';
+import LateralBar from '../../containers/LateralBar';
 
 const Home = () => {
   return (
     <>
-      <h1>AAAAAAAAA</h1>
+      <LateralBar showFilters />
       <ContactList />
     </>
   );
