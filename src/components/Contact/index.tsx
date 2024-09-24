@@ -1,36 +1,36 @@
 //Externl Dependencies
 import { useState } from 'react';
 //Internal Dependendies
-import * as enums from '../../utils/enums/Contact';
 import * as S from './styles';
 import { Button, SaveButton } from '../../styles';
+import ContactClass from '../../models/contact';
 
-const Contact = () => {
+type Props = ContactClass;
+
+const Contact = ({ name, mail, telNumber, category }: Props) => {
   const [isEditing, setIsEditing] = useState(false);
 
   return (
     <S.Card>
-      <S.Tag category={enums.Category.PERSONAL}>
-        {enums.Category.PERSONAL}
-      </S.Tag>
+      <S.Tag category={category}>{category}</S.Tag>
       <S.Title>
         {isEditing && <em>Editing: </em>}
-        Teste
+        {name}
       </S.Title>
       <S.Info>
-        <i className="bi-telephone-fill"></i>
+        <S.Icon className="bi-telephone-fill" />
+        {telNumber}
       </S.Info>
       <S.Info>
-        <i className="bi-envelope-at-fill"></i>
+        <S.Icon className="bi-envelope-at-fill" />
+        {mail}
       </S.Info>
 
       <S.ActionBar>
         {isEditing ? (
           <>
             <SaveButton onClick={() => setIsEditing(false)}>Save</SaveButton>
-            <S.CancelRemoveButton onClick={() => setIsEditing(false)}>
-              Cancel
-            </S.CancelRemoveButton>
+            <S.CancelRemoveButton onClick={() => setIsEditing(false)}>Cancel</S.CancelRemoveButton>
           </>
         ) : (
           <>

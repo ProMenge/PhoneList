@@ -1,15 +1,41 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Contact from '../../models/contact';
+import * as enums from '../../utils/enums/Contact';
 
 type ContactState = {
   itens: Contact[];
 };
 
 const initialState: ContactState = {
-  itens: [],
+  itens: [
+    {
+      name: 'Fred',
+      mail: 'fred@gmail.com',
+      telNumber: 1199445738,
+      category: enums.Category.FAMILY,
+    },
+    {
+      name: 'Lucas',
+      mail: 'Lucas@gmail.com',
+      telNumber: 1199952638,
+      category: enums.Category.WORK,
+    },
+    {
+      name: 'Pedro',
+      mail: 'Pedro@gmail.com',
+      telNumber: 11019828650,
+      category: enums.Category.PERSONAL,
+    },
+    {
+      name: 'Vet',
+      mail: 'Veterinário@gmail.com',
+      telNumber: 11919820980,
+      category: enums.Category.SERVICES,
+    },
+  ],
 };
 
-const contactState = createSlice({
+const contactSlice = createSlice({
   name: `contacts`,
   initialState,
   reducers: {
@@ -45,3 +71,6 @@ const contactState = createSlice({
     },
   },
 });
+
+export const { remove, edit, register } = contactSlice.actions;
+export default contactSlice.reducer;

@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import variables from '../../styles/variables';
 
 export const Aside = styled.aside`
   padding: 16px;
-  background-color: #eeeeee;
+  background-color: ${variables.lightBrown};
   height: 100vh;
+  border-right: 2px solid black;
 `;
 export const Campo = styled.input`
   border-radius: 8px;
@@ -24,4 +26,6 @@ export const Campo = styled.input`
 export const Filters = styled.div`
   display: flex;
   margin-top: 16px;
+  flex-wrap: wrap;
+  flex-direction: column;
 `;

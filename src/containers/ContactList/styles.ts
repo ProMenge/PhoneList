@@ -8,6 +8,6 @@ export const Container = styled.main`
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: 30% 30% 30%;
-  grid-gap: 2%;
+  grid-template-columns: 31.5% 31.5% 31.5%;
+  grid-gap: 3%;
 `;

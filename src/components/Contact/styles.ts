@@ -17,13 +17,24 @@ function returnsBackgroundColor(props: TagProps): string {
   }
 }
 
+// export const Card = styled.div`
+//   background-color: #ecf0f1;
+//   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+//   padding: 16px;
+//   margin-bottom: 32px;
+//   border-radius: 16px;
+//   max-width: 100%;
+// `;
+
 export const Card = styled.div`
-  background-color: #ecf0f1;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: ${variables.lightBrown};
+  box-shadow: ${variables.brown} 4px 4px 0 0;
   padding: 16px;
   margin-bottom: 32px;
+  border: 2px solid ${variables.brown};
   border-radius: 16px;
   max-width: 100%;
+  margin-top: 16px;
 `;
 
 export const Title = styled.h3`
@@ -31,6 +42,7 @@ export const Title = styled.h3`
   font-size: 18px;
   margin-left: 8px;
   margin-bottom: 12px;
+  color: ${variables.brown};
 `;
 
 export const Tag = styled.span<TagProps>`
@@ -44,9 +56,16 @@ export const Tag = styled.span<TagProps>`
   display: inline-block;
 `;
 
-export const Info = styled.p`
-  font-size: 14px;
+export const Info = styled.div`
+  font-size: 16px;
   margin: 4px 10px;
+  font-weight: bold;
+`;
+
+export const Icon = styled.i`
+  margin-right: 8px;
+  color: ${variables.brown};
+  font-size: 20px;
 `;
 
 export const ActionBar = styled.div`
