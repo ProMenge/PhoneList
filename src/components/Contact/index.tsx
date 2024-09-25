@@ -1,13 +1,16 @@
 //Externl Dependencies
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 //Internal Dependendies
 import * as S from './styles';
 import { Button, SaveButton } from '../../styles';
 import ContactClass from '../../models/contact';
+import { remove } from '../../Redux/contacts/slice';
 
 type Props = ContactClass;
 
 const Contact = ({ name, mail, telNumber, category }: Props) => {
+  const dispatch = useDispatch();
   const [isEditing, setIsEditing] = useState(false);
 
   return (
@@ -35,7 +38,9 @@ const Contact = ({ name, mail, telNumber, category }: Props) => {
         ) : (
           <>
             <Button onClick={() => setIsEditing(true)}>Edit</Button>
-            <S.CancelRemoveButton>Remove</S.CancelRemoveButton>
+            <S.CancelRemoveButton onClick={() => dispatch(remove(telNumber))}>
+              Remove
+            </S.CancelRemoveButton>
           </>
         )}
       </S.ActionBar>

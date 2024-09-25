@@ -1,21 +1,37 @@
+//External Dependencies
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
+//Internal Dependencies
 import FilterCard from '../../components/FilterCard';
-import { Button } from '../../styles';
 import * as S from './styles';
 import * as enums from '../../utils/enums/Contact';
+import { RootState } from '../../Redux/store';
+import { changeTerm } from '../../Redux/filter/slice';
+import { Campo } from '../../styles';
 
 type Props = {
   showFilters: boolean;
 };
 
 const LateralBar = ({ showFilters }: Props) => {
+  const dispatch = useDispatch();
+  const { term } = useSelector((state: RootState) => state.filter);
+  const navigate = useNavigate();
   return (
     <S.Aside>
       <div>
         {showFilters ? (
           <>
-            <S.Campo type="text" name="Buscar" placeholder="Buscar" />
+            <Campo
+              type="text"
+              name="Buscar"
+              placeholder="Search"
+              value={term}
+              onChange={(event) => dispatch(changeTerm(event.target.value))}
+            />
             <S.Filters>
-              <FilterCard subtitle={'ALL'} criterion={'all'} />
+              <FilterCard subtitle={'All'} criterion={'all'} />
               <FilterCard
                 subtitle={'Family'}
                 value={enums.Category.FAMILY}
@@ -35,7 +51,10 @@ const LateralBar = ({ showFilters }: Props) => {
             </S.Filters>
           </>
         ) : (
-          <Button>Return to PhoneList</Button>
+          <S.returnBtn type="button" to="/">
+            {' '}
+            Return to PhoneList
+          </S.returnBtn>
         )}
       </div>
     </S.Aside>

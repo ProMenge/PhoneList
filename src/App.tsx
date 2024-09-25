@@ -7,16 +7,17 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
 import store from './Redux/store';
 import GlobalStyle, { Container } from './styles';
+import Register from './pages/Register';
 
 const routes = createBrowserRouter([
   {
     path: `/`,
     element: <Home />,
   },
-  // {
-  //   path: `/new`,
-  //   element: <Register />
-  // }
+  {
+    path: `/newContact`,
+    element: <Register />,
+  },
 ]);
 
 function App() {
