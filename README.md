@@ -1,50 +1,72 @@
-# React + TypeScript + Vite
+# PhoneList
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto desenvolvido como foco em fortalecer os conhecimentos principalmente a que se iz respeito a controle de estados com o redux - utilizando do compartilhamento de dados em diversos componentes e funções.
 
-Currently, two official plugins are available:
+Este projeto visa fortalecer a ampliar os conhecimentos baseados em React por meio da criação de uma calculadora de IMC
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Começando
 
-## Expanding the ESLint configuration
+### 📋 Pré-requisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- HTML (v5);
+- CSS (v3);
+- JavaScript(v6);
+- React (v18);
 
-- Configure the top-level `parserOptions` property like this:
+### 🔧 Instalação
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname
-    }
-  }
-})
+1. Clone o repositório para o seu ambiente local:
+
+```
+$ git clone https://github.com/ProMenge/PhoneList
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Navegue até o diretório do projeto.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules
-  }
-})
 ```
+$ cd PhoneList
+```
+
+3. Instale as dependências
+
+```
+$ cd npm install
+```
+
+3. Inicie o ambiente
+
+```
+$ cd npm run dev
+```
+
+## 🛠️ Construído com
+
+- [React](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiN7Pjcl6-HAxXQqJUCHRCED8IQFnoECAkQAQ&url=https%3A%2F%2Freact.dev%2F&usg=AOvVaw1tEjYYiD7LQlxO53dgjTHV&cshid=1721257678619561&opi=89978449) - A biblioteca usada
+
+## 🖇️ Colaborando
+
+Contribuições são bem-vindas! Se você quiser contribuir para o projeto, siga as etapas abaixo:
+
+1. Fork o repositório e clone-o para o seu ambiente local.
+
+2. Crie uma nova branch:
+
+```
+git checkout -b minha-contribuicao
+```
+
+3. Faça as alterações desejadas e commit-as:
+
+```
+git commit -m "Minha contribuição"
+```
+
+4. Envie suas alterações para o repositório remoto:
+
+```
+git push origin minha-contribuicao
+```
+
+## ✒️ Autores
+
+- **Fred Menge** - _Trabalho Inicial_ - [Fred Menge](https://github.com/ProMenge)
