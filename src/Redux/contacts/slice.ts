@@ -9,28 +9,11 @@ type ContactState = {
 const initialState: ContactState = {
   itens: [
     {
-      name: 'Fred',
-      mail: 'fred@gmail.com',
-      telNumber: 1199445738,
-      category: enums.Category.FAMILY,
-    },
-    {
-      name: 'Lucas',
-      mail: 'Lucas@gmail.com',
-      telNumber: 1199952638,
-      category: enums.Category.WORK,
-    },
-    {
-      name: 'Pedro',
-      mail: 'Pedro@gmail.com',
-      telNumber: 11019828650,
-      category: enums.Category.PERSONAL,
-    },
-    {
       name: 'Vet',
-      mail: 'Veterinário@gmail.com',
+      mail: 'veterinário@gmail.com',
       telNumber: 11919820980,
       category: enums.Category.SERVICES,
+      id: 1,
     },
   ],
 };
@@ -40,15 +23,15 @@ const contactSlice = createSlice({
   initialState,
   reducers: {
     remove: (state, action: PayloadAction<number>) => {
-      state.itens = state.itens.filter((contact) => contact.telNumber !== action.payload);
+      state.itens = state.itens.filter((contact) => contact.id !== action.payload);
     },
     edit: (state, action: PayloadAction<Contact>) => {
-      const contactIndex = state.itens.findIndex((c) => c.telNumber === action.payload.telNumber);
+      const contactIndex = state.itens.findIndex((c) => c.id === action.payload.id);
       if (contactIndex >= 0) {
         state.itens[contactIndex] = action.payload;
       }
     },
-    register: (state, action: PayloadAction<Contact>) => {
+    register: (state, action: PayloadAction<Omit<Contact, 'id'>>) => {
       // Busca no array `state.itens` se já existe um contato com o mesmo nome ou número de telefone.
       const contactAlreadyExists = state.itens.find(
         (contact) =>
@@ -61,8 +44,11 @@ const contactSlice = createSlice({
         alert(`Contact with this name/number already exists`);
       } else {
         // Cria um novo contato com os dados fornecidos pelo usuário, sem alterar o número de telefone.
+        const lastContact = state.itens[state.itens.length - 1];
+
         const newContact = {
-          ...action.payload, // Copia todos os dados fornecidos no payload, incluindo o número de telefone inserido.
+          ...action.payload,
+          id: lastContact ? lastContact.id + 1 : 1, // Copia todos os dados fornecidos no payload, incluindo o número de telefone inserido.
         };
 
         // Adiciona o novo contato ao array `state.itens`.

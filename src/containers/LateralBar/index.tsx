@@ -38,16 +38,16 @@ const LateralBar = ({ showFilters }: Props) => {
                 criterion={'category'}
               />
               <FilterCard
-                subtitle={'Pessoal'}
+                subtitle={'Personal'}
                 value={enums.Category.PERSONAL}
                 criterion={'category'}
               />
               <FilterCard
-                subtitle={'SERVICES'}
+                subtitle={'Services'}
                 value={enums.Category.SERVICES}
                 criterion={'category'}
               />
-              <FilterCard subtitle={'WORK'} value={enums.Category.WORK} criterion={'category'} />
+              <FilterCard subtitle={'Work'} value={enums.Category.WORK} criterion={'category'} />
             </S.Filters>
           </>
         ) : (

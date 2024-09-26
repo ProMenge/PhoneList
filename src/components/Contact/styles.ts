@@ -56,12 +56,6 @@ export const Tag = styled.span<TagProps>`
   display: inline-block;
 `;
 
-export const Info = styled.div`
-  font-size: 16px;
-  margin: 4px 10px;
-  font-weight: bold;
-`;
-
 export const Icon = styled.i`
   margin-right: 8px;
   color: ${variables.brown};
@@ -75,4 +69,24 @@ export const ActionBar = styled.div`
 
 export const CancelRemoveButton = styled(Button)`
   background-color: ${variables.red};
+`;
+
+export const Info = styled.div`
+  font-size: 16px;
+  margin: 4px 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+`;
+
+export const contactData = styled.textarea`
+  resize: none;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  background-color: transparent;
+  text-align: left;
+  max-height: 20px;
+  width: 100%;
+  vertical-align: middle;
 `;

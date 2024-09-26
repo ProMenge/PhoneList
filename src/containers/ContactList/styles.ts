@@ -8,7 +8,7 @@ export const Container = styled.main`
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: 31.5% 31.5% 31.5%;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 3%;
 `;
 
@@ -22,4 +22,8 @@ export const Message = styled.p`
     0px 18px 23px rgba(0, 0, 0, 0.1);
   margin-top: 16px;
   margin-left: 8px;
+  background-color: ${variables.lightBrown};
+  padding: 8px;
+  max-width: 70%;
+  box-shadow: ${variables.brown} 4px 4px 0;
 `;

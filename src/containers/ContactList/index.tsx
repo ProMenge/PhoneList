@@ -46,7 +46,13 @@ const ContactList = () => {
       <S.List>
         {contacts.map((t) => (
           <li key={t.telNumber}>
-            <Contact name={t.name} mail={t.mail} telNumber={t.telNumber} category={t.category} />
+            <Contact
+              id={t.id}
+              name={t.name}
+              mail={t.mail}
+              telNumber={t.telNumber}
+              category={t.category}
+            />
           </li>
         ))}
       </S.List>
